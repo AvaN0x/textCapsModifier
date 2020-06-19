@@ -28,9 +28,9 @@
                       HorizontalAlignment="Left" 
                       VerticalAlignment="Top"
                       Width="200">
-                <!--<ComboBoxItem x:Name="allUp"Content="All uppercase"></ComboBoxItem>-->
-                <!--<ComboBoxItem x:Name="allLow"Content="All lowercase"></ComboBoxItem>-->
-                <!--<ComboBoxItem x:Name="firstUp"Content="First character upper"></ComboBoxItem>-->
+                <ComboBoxItem x:Name="allUp" Content="All uppercase"></ComboBoxItem>
+                <ComboBoxItem x:Name="allLow" Content="All lowercase"></ComboBoxItem>
+                <!--<ComboBoxItem x:Name="firstUp" Content="First character upper"></ComboBoxItem>-->
                 <ComboBoxItem x:Name="firstWordUp" Content="First char of each word"></ComboBoxItem>
                 <ComboBoxItem x:Name="oneOutOfTwo" Content="One out of two"></ComboBoxItem>
             </ComboBox>

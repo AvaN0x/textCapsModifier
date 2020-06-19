@@ -47,10 +47,14 @@ namespace textCapsModifier
             var value = txtbx_input.Text;
             var selected = ((ComboBoxItem) cmbobox_modification.SelectedItem).Name;
 
-            if (selected == "oneOutOfTwo")
-                value = getOneOutOfTwo(value);
+            if (selected == "allUp")
+                value = value.ToUpper();
+            else if (selected == "allLow")
+                value = value.ToLower();
             else if (selected == "firstWordUp")
                 value = getFirstWordUp(value);
+            else if (selected == "oneOutOfTwo")
+                value = getOneOutOfTwo(value);
             txtbx_input.Text = value;
         }
 
