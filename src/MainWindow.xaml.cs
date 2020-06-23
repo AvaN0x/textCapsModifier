@@ -66,7 +66,7 @@ namespace textCapsModifier
                     break;
             }
 
-            txtbx_input.Text = value;
+            txtbx_input.Text = value.Trim();
         }
 
         private string getOneOutOfTwo(String value)
