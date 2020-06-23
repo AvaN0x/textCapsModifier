@@ -79,7 +79,6 @@ namespace textCapsModifier
                 else
                     result += c;
 
-            txtbx_input.Text = result;
             return result;
         }
 
