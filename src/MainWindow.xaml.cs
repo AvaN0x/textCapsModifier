@@ -55,8 +55,8 @@ namespace textCapsModifier
                 case "allLow":
                     value = value.ToLower();
                     break;
-                case "firstUp":
-                    value = value.Substring(0, 1).ToUpper() + value.Substring(1).ToLower();
+                case "firstSentenceUp":
+                    value = getFirstSentenceUp(value);
                     break;
                 case "firstWordUp":
                     value = getFirstWordUp(value);
@@ -82,6 +82,36 @@ namespace textCapsModifier
             txtbx_input.Text = result;
             return result;
         }
+
+        private string getFirstSentenceUp(String value)
+        {
+            var result = value.Substring(0, 1).ToUpper() + value.Substring(1);
+            int position = 0;
+            do
+            {
+                position = value.IndexOf('.', position);
+                if (position >= 0)
+                {
+                    if ((position = getNextLetter(position, value)) != -1)
+                        result = result.Substring(0, position) + char.ToUpper(result[position]) + result.Substring(position + 1);
+                }
+            } while (position > 0);
+            return result;
+        }
+
+        private int getNextLetter(int start, string value)
+        {
+            int position = start;
+            while (position < value.Length && !char.IsLetter(value[position]))
+            {
+                position++;
+            }
+            if (position != start && position < value.Length)
+                return position;
+            else
+                return -1;
+        }
+
         private string getFirstWordUp(String value)
         {
             return Regex.Replace(value.ToLower(), @"\b[a-z]", m => m.Value.ToUpper());
