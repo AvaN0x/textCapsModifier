@@ -7,7 +7,7 @@
 
 ### Installation
 
-Just download the [latest version](https://github.com/AvaN0x/textCapsModifier/releases/latest) to start using it.
+Download the [latest version](https://github.com/AvaN0x/textCapsModifier/releases/latest) to start using it.
 
 ### Use
 
