@@ -55,6 +55,9 @@ namespace textCapsModifier
                 case "allLow":
                     value = value.ToLower();
                     break;
+                case "capsSwap":
+                    value = getCapsSwap(value);
+                    break;
                 case "firstSentenceUp":
                     value = getFirstSentenceUp(value);
                     break;
@@ -69,6 +72,7 @@ namespace textCapsModifier
             txtbx_input.Text = value.Trim();
         }
 
+
         private string getOneOutOfTwo(String value)
         {
             var result = "";
@@ -78,7 +82,17 @@ namespace textCapsModifier
                     result += (toUpper = !toUpper) ? char.ToLower(c) : char.ToUpper(c);
                 else
                     result += c;
+            return result;
+        }
 
+        private string getCapsSwap(String value)
+        {
+            var result = "";
+            foreach (var c in value)
+                if (char.IsLetter(c))
+                    result += (char.IsUpper(c)) ? char.ToLower(c) : char.ToUpper(c);
+                else
+                    result += c;
             return result;
         }
 

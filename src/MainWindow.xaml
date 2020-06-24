@@ -46,6 +46,7 @@
                     <ComboBoxItem x:Name="firstSentenceUp" Content="First word of each sentence with cap"></ComboBoxItem>
                     <ComboBoxItem x:Name="firstWordUp" Content="First char of each word"></ComboBoxItem>
                     <ComboBoxItem x:Name="oneOutOfTwo" Content="One out of two"></ComboBoxItem>
+                    <ComboBoxItem x:Name="capsSwap" Content="Caps swap" ToolTip="Every upper case become lower case and and vice versa"></ComboBoxItem>
                 </ComboBox>
 
 
