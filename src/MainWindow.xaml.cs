@@ -39,7 +39,7 @@ namespace textCapsModifier
         private void toClipBoard_Click(object sender, RoutedEventArgs e)
         {
             textEdit();
-            Clipboard.SetText(txtbx_input.Text);
+            Clipboard.SetDataObject(txtbx_input.Text);
         }
 
         private void textEdit()
