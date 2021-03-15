@@ -50,6 +50,16 @@ namespace textCapsModifier
 
                 handleEdit();
             }
+
+            // if CONTROL + TAB is pressed, change selected item in combobox
+            if (Keyboard.Modifiers.HasFlag(ModifierKeys.Control) && e.Key == Key.Tab)
+            {
+                e.Handled = true;
+                if (cmbobox_modification.SelectedIndex < cmbobox_modification.Items.Count - 1)
+                    cmbobox_modification.SelectedIndex++;
+                else
+                    cmbobox_modification.SelectedIndex = 0;
+            }
         }
 
         private void handleEdit()
