@@ -43,9 +43,11 @@ namespace textCapsModifier
 
         private void txtbx_input_PreviewKeyDown(object sender, KeyEventArgs e)
         {
+            // if ENTER is pressed and not SHIFT + ENTER, handle edit event
             if (!Keyboard.Modifiers.HasFlag(ModifierKeys.Shift) && e.Key == Key.Enter)
             {
                 e.Handled = true;
+
                 handleEdit();
             }
         }
@@ -54,6 +56,9 @@ namespace textCapsModifier
         {
             textEdit();
             Clipboard.SetDataObject(txtbx_input.Text);
+
+            txtbx_input.Focus();
+            txtbx_input.SelectAll();
         }
 
         private void textEdit()
