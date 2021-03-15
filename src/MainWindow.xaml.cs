@@ -38,6 +38,20 @@ namespace textCapsModifier
 
         private void toClipBoard_Click(object sender, RoutedEventArgs e)
         {
+            handleEdit();
+        }
+
+        private void txtbx_input_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (!Keyboard.Modifiers.HasFlag(ModifierKeys.Shift) && e.Key == Key.Enter)
+            {
+                e.Handled = true;
+                handleEdit();
+            }
+        }
+
+        private void handleEdit()
+        {
             textEdit();
             Clipboard.SetDataObject(txtbx_input.Text);
         }
@@ -45,25 +59,30 @@ namespace textCapsModifier
         private void textEdit()
         {
             var value = txtbx_input.Text;
-            var selected = ((ComboBoxItem) cmbobox_modification.SelectedItem).Name;
+            var selected = ((ComboBoxItem)cmbobox_modification.SelectedItem).Name;
 
             switch (selected)
             {
                 case "allUp":
                     value = value.ToUpper();
                     break;
+
                 case "allLow":
                     value = value.ToLower();
                     break;
+
                 case "capsSwap":
                     value = getCapsSwap(value);
                     break;
+
                 case "firstSentenceUp":
                     value = getFirstSentenceUp(value);
                     break;
+
                 case "firstWordUp":
                     value = getFirstWordUp(value);
                     break;
+
                 case "oneOutOfTwo":
                     value = getOneOutOfTwo(value);
                     break;
@@ -71,7 +90,6 @@ namespace textCapsModifier
 
             txtbx_input.Text = value.Trim();
         }
-
 
         private string getOneOutOfTwo(String value)
         {
@@ -129,7 +147,5 @@ namespace textCapsModifier
         {
             return Regex.Replace(value.ToLower(), @"\b[a-z]", m => m.Value.ToUpper());
         }
-
-
     }
 }

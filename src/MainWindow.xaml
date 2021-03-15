@@ -5,69 +5,66 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:textCapsModifier"
         mc:Ignorable="d"
-        Title="TextCapsModifier" 
+        Title="TextCapsModifier"
         Icon="https://avatars3.githubusercontent.com/u/27494805"
         MinHeight="150"
         Height="170"
         MinWidth="280"
-        Width="500" 
+        Width="500"
         Topmost="True"
         ResizeMode="CanResize"
         Background="#26292f"
         WindowStartupLocation="CenterScreen">
 
-
     <Grid Margin="0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0" Margin="4 8">
             <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="auto"/>
-                </Grid.ColumnDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
 
-                <ComboBox x:Name="cmbobox_modification" 
+            <ComboBox x:Name="cmbobox_modification"
                       Grid.Row="0"
                       Grid.ColumnSpan="2"
                       SelectedIndex="0"
-                      Margin="2" 
-                      HorizontalAlignment="Left" 
+                      Margin="2"
+                      HorizontalAlignment="Left"
                       VerticalAlignment="Top"
                       Width="222">
-                    <ComboBoxItem x:Name="allUp" Content="All uppercase"></ComboBoxItem>
-                    <ComboBoxItem x:Name="allLow" Content="All lowercase"></ComboBoxItem>
-                    <ComboBoxItem x:Name="firstSentenceUp" Content="First word of each sentence with cap"></ComboBoxItem>
-                    <ComboBoxItem x:Name="firstWordUp" Content="First char of each word"></ComboBoxItem>
-                    <ComboBoxItem x:Name="oneOutOfTwo" Content="One out of two"></ComboBoxItem>
-                    <ComboBoxItem x:Name="capsSwap" Content="Caps swap" ToolTip="Every upper case become lower case and and vice versa"></ComboBoxItem>
-                </ComboBox>
+                <ComboBoxItem x:Name="allUp" Content="All uppercase"></ComboBoxItem>
+                <ComboBoxItem x:Name="allLow" Content="All lowercase"></ComboBoxItem>
+                <ComboBoxItem x:Name="firstSentenceUp" Content="First word of each sentence with cap"></ComboBoxItem>
+                <ComboBoxItem x:Name="firstWordUp" Content="First char of each word"></ComboBoxItem>
+                <ComboBoxItem x:Name="oneOutOfTwo" Content="One out of two"></ComboBoxItem>
+                <ComboBoxItem x:Name="capsSwap" Content="Caps swap" ToolTip="Every upper case become lower case and and vice versa"></ComboBoxItem>
+            </ComboBox>
 
-
-                <TextBox x:Name="txtbx_input"
-                      Grid.Row="1"
-                      Grid.Column="0"
-                      TextWrapping="Wrap"
-                      AcceptsReturn="True"
-                      VerticalScrollBarVisibility="Visible"
-                      Height="auto"
-                      Width="auto"
-                      Margin="2"
-                      />
+            <TextBox x:Name="txtbx_input"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    TextWrapping="Wrap"
+                    AcceptsReturn="True"
+                    VerticalScrollBarVisibility="Visible"
+                    Height="auto"
+                    Width="auto"
+                    Margin="2" PreviewKeyDown="txtbx_input_PreviewKeyDown" />
             <Button x:Name="toClipBoard"
-                        ToolTip="Apply and copy to clipboard"
-                        Grid.Row="1"
-                        Grid.Column="1" 
-                        Width="22" 
-                        Height="22" 
-                        Margin="6 0 2 0" 
-                        Click="toClipBoard_Click">
+                    ToolTip="Apply and copy to clipboard"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Width="22"
+                    Height="22"
+                    Margin="6 0 2 0"
+                    Click="toClipBoard_Click">
                 <Viewbox Width="16" Height="16" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
                     <Rectangle Width="16" Height="16">
                         <Rectangle.Fill>
@@ -88,42 +85,38 @@
                 </Viewbox>
             </Button>
         </Grid>
-        
+
         <!-- Bottom bar -->
         <Grid Grid.Row="1" VerticalAlignment="Bottom" Margin="4">
-            <CheckBox x:Name="cb_OnTop" 
-                      Content="Always on Top" 
+            <CheckBox x:Name="cb_OnTop"
+                      Content="Always on Top"
                       IsChecked="True"
-                      HorizontalAlignment="Left" 
+                      HorizontalAlignment="Left"
                       VerticalAlignment="Center"
-                      FontSize="12" 
-                      Height="16" 
-                      Foreground="#fff" 
+                      FontSize="12"
+                      Height="16"
+                      Foreground="#fff"
                       Margin="10 2 0 0"
-                      Checked="OnTop_Checked" 
-                      Unchecked="OnTop_Unchecked"/>
+                      Checked="OnTop_Checked"
+                      Unchecked="OnTop_Unchecked" />
             <TextBlock
-                FontSize="12" 
+                FontSize="12"
                 Foreground="#fff"
-                HorizontalAlignment="Right" 
+                HorizontalAlignment="Right"
                 VerticalAlignment="Center"
                 Margin="0 0 10 0">
-                By 
+                By
                 <Hyperlink NavigateUri="https://github.com/AvaN0x"
                            Foreground="#fff"
-                           TextDecorations="None"
-                           >
-                            github.com/AvaN0x             
-                            <Image Source="https://avatars3.githubusercontent.com/u/27494805" 
-                               VerticalAlignment="Center" 
-                               Height="12px" 
-                               Margin="2 0 0 0"> 
+                           TextDecorations="None">
+                            github.com/AvaN0x
+                            <Image Source="https://avatars3.githubusercontent.com/u/27494805"
+                               VerticalAlignment="Center"
+                               Height="12px"
+                               Margin="2 0 0 0">
                             </Image>
                 </Hyperlink>
             </TextBlock>
-            
         </Grid>
-
-
     </Grid>
 </Window>
